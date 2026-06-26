@@ -95,6 +95,46 @@ bool palindrome(int n){
     }
 }
 
+bool Isprime(int n){
+    if(n<2){
+        return false;
+    }
+    for(int i = 2; i < n; i++){
+        if(n%i == 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Isarmstrong(int n){
+    int x = n;
+    int arm = 0;
+    while(n > 0){
+        int s = n%10;
+        arm += s*s*s;
+        n = n/10;
+    }
+    if(arm == x){
+        return true;
+    }
+    return false;
+}
+
+bool Isperfect(int n){
+    int x = n;
+    int perfect = 0;
+    for(int i = 1; i < n; i++){
+        if(n%i == 0){
+            perfect += i;
+        }
+    }
+    if(perfect == x){
+        return true;
+    }
+    return false;
+}
+
 int main(){
     int n;
     cout<<"Enter a number: ";
@@ -113,6 +153,30 @@ int main(){
     }
     else{
         cout<<"\nNumber is not Palindrome";
+    }
+
+    int prime = Isprime(n);
+    if(prime){
+        cout<<"\nPrime number.";
+    }
+    else{
+        cout<<"\nNot a Prime number.";
+    }
+
+    int arm = Isarmstrong(n);
+    if(arm){
+        cout<<"Armstrong Number.";
+    }
+    else{
+        cout<<"Not a Armstrong number.";
+    }
+
+    int perfect = Isperfect(n);
+    if(perfect){
+        cout<<"Perfect number";
+    }
+    else{
+        cout<<"Not a perfect number.";
     }
     return 0;
 }
